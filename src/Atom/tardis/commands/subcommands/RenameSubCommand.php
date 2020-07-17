@@ -42,7 +42,7 @@ class RenameSubCommand extends WorldCoreSubCommand {
         }
 
         $this->plugin->renameWorld($level, $newname);
-        $sender->sendMessage(TextFormat::colorize("&l&9Tardis&r&e - You renamed '$oldname' to '$newname'"));
+        $sender->sendMessage(TextFormat::colorize("&l&9Tardis&r&b - You renamed '$oldname' to '$newname'"));
 
     }
 

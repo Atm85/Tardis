@@ -30,7 +30,7 @@ class FixnameSubCommand extends WorldCoreSubCommand {
 
             $level = $this->plugin->getServer()->getLevelByName($args["[all:world]"]);
             if ($this->plugin->fixWorld($level)) {
-                $sender->sendMessage(TextFormat::colorize("&l&9Tardis &r&e - world name '".$args["[all:world]"]."' has been fixed"));
+                $sender->sendMessage(TextFormat::colorize("&l&9Tardis &r&b - world name '".$args["[all:world]"]."' has been fixed"));
             } else {
                 $sender->sendMessage(TextFormat::colorize("&l&4Tardis &r&c - world '".$args["[all:world]"]."' is already fixed"));
             }
