@@ -4,7 +4,7 @@
 namespace Atom\tardis;
 
 
-use Atom\tardis\commands\WorldCoreCommand;
+use Atom\tardis\commands\TardisCommand;
 use pocketmine\level\Level;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
@@ -44,7 +44,7 @@ class Tardis extends PluginBase {
 
         $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
         $commandMap = $this->getServer()->getCommandMap();
-        $commandMap->register("tardis", new WorldCoreCommand($this, "tardis", "Tardis plugin command", ["twm"]));
+        $commandMap->register("tardis", new TardisCommand($this, "tardis", "Tardis plugin command", ["twm"]));
 
         if ($this->config->get("loadall-on-startup")) {
             $this->getLogger()->info(TextFormat::GREEN."Fixed ".$this->fixAll()." world name(s)!");

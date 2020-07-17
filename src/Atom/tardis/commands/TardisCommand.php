@@ -12,7 +12,7 @@ use CortexPE\Commando\BaseCommand;
 use pocketmine\command\CommandSender;
 use pocketmine\utils\TextFormat;
 
-class WorldCoreCommand extends BaseCommand {
+class TardisCommand extends BaseCommand {
 
     /** @var Tardis */
     protected $plugin;
