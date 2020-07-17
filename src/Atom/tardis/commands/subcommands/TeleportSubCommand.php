@@ -9,7 +9,7 @@ use CortexPE\Commando\exception\ArgumentOrderException;
 use pocketmine\Player;
 use pocketmine\utils\TextFormat;
 
-class TeleprortSubCommand extends WorldCoreSubCommand {
+class TeleportSubCommand extends WorldCoreSubCommand {
 
     /**
      * @throws ArgumentOrderException
