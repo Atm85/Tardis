@@ -1,17 +1,17 @@
 <?php
 
 
-namespace Atom\worldcore;
+namespace Atom\tardis;
 
 
-use Atom\worldcore\commands\WorldCoreCommand;
+use Atom\tardis\commands\WorldCoreCommand;
 use pocketmine\level\Level;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
 use pocketmine\utils\TextFormat;
 use ReflectionProperty;
 
-class WorldCore extends PluginBase {
+class Tardis extends PluginBase {
 
     /** @var Config */
     public $config;
@@ -26,7 +26,7 @@ class WorldCore extends PluginBase {
     public $reflectionFolderName;
 
     public function onEnable(): void {
-        $this->getLogger()->info(TextFormat::colorize("&aWorldCore by Atom#7489"));
+        $this->getLogger()->info(TextFormat::colorize("&Tardis world manager by Atom#7489"));
         $this->path = $this->getServer()->getDataPath()."worlds/";
 
         $this->reflectionProperty = new ReflectionProperty(Level::class, "displayName");
@@ -44,7 +44,7 @@ class WorldCore extends PluginBase {
 
         $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
         $commandMap = $this->getServer()->getCommandMap();
-        $commandMap->register("worldcore", new WorldCoreCommand($this, "worldcore", "WorldCore plugin command", ["wc"]));
+        $commandMap->register("tardis", new WorldCoreCommand($this, "tardis", "Tardis plugin command", ["twm"]));
 
         if ($this->config->get("loadall-on-startup")) {
             $this->getLogger()->info(TextFormat::GREEN."Fixed ".$this->fixAll()." world name(s)!");

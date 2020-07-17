@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Atom\worldcore\commands\subcommands;
+namespace Atom\tardis\commands\subcommands;
 
 
 use CortexPE\Commando\args\RawStringArgument;
@@ -15,7 +15,7 @@ class RenameSubCommand extends WorldCoreSubCommand {
      * @throws ArgumentOrderException
      */
     public function prepare(): void {
-        $this->setPermission("worldcore.command.rename");
+        $this->setPermission("tardis.command.rename");
         $this->registerArgument(0, new RawStringArgument("oldname", false));
         $this->registerArgument(1, new RawStringArgument("newname", false));
     }
@@ -26,23 +26,23 @@ class RenameSubCommand extends WorldCoreSubCommand {
         $newname = $args["newname"];
 
         if ($sender->getLevel()->getName() === $oldname) {
-            $sender->sendMessage(TextFormat::colorize("&l&4WorldCore &r&c - You cannot rename the level you're currently in!"));
+            $sender->sendMessage(TextFormat::colorize("&l&9Tardis &r&c - You cannot rename the level you're currently in!"));
             return;
         }
 
         $level = $this->plugin->getServer()->getLevelByName($oldname);
         if ($level === null) {
-            $sender->sendMessage(TextFormat::colorize("&l&4WorldCore &r&c - level '$oldname' could not be found!"));
+            $sender->sendMessage(TextFormat::colorize("&l&9Tardis &r&c - level '$oldname' could not be found!"));
             return;
         }
 
         if (count($level->getPlayers()) > 0) {
-            $sender->sendMessage(TextFormat::colorize("&l&4WorldCore &r&c - You cannot rename the level when there are players in it!"));
+            $sender->sendMessage(TextFormat::colorize("&l&9Tardis &r&c - You cannot rename the level when there are players in it!"));
             return;
         }
 
         $this->plugin->renameWorld($level, $newname);
-        $sender->sendMessage(TextFormat::colorize("&l&6WorldCore &r&e - You renamed '$oldname' to '$newname'"));
+        $sender->sendMessage(TextFormat::colorize("&l&9Tardis&r&e - You renamed '$oldname' to '$newname'"));
 
     }
 

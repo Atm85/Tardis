@@ -1,5 +1,5 @@
-name: WorldCore
+name: Tardis
 api: [3.0.0]
 version: 0.0.1
 author: Atom#7489
-main: Atom\worldcore\WorldCore
+main: Atom\tardis\Tardis

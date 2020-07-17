@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Atom\worldcore;
+namespace Atom\tardis;
 
 
 use pocketmine\event\level\LevelLoadEvent;
@@ -10,10 +10,10 @@ use pocketmine\utils\TextFormat;
 
 class EventListener implements Listener {
 
-    /** @var WorldCore */
+    /** @var Tardis */
     private $plugin;
 
-    public function __construct(WorldCore $plugin) {
+    public function __construct(Tardis $plugin) {
         $this->plugin = $plugin;
     }
 

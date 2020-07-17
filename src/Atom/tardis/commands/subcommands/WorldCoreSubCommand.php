@@ -1,21 +1,20 @@
 <?php
 
 
-namespace Atom\worldcore\commands\subcommands;
+namespace Atom\tardis\commands\subcommands;
 
 
-use Atom\worldcore\WorldCore;
+use Atom\tardis\Tardis;
 use CortexPE\Commando\BaseSubCommand;
 use pocketmine\command\CommandSender;
 use pocketmine\Player;
-use pocketmine\plugin\Plugin;
 use pocketmine\utils\TextFormat;
 
 class WorldCoreSubCommand extends BaseSubCommand {
 
     protected $plugin;
 
-    public function __construct(WorldCore $plugin, string $name, string $description = "", array $aliases = []) {
+    public function __construct(Tardis $plugin, string $name, string $description = "", array $aliases = []) {
         parent::__construct($plugin, $name, $description, $aliases);
         $this->plugin = $plugin;
     }
