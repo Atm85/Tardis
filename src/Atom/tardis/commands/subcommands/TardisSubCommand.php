@@ -10,7 +10,7 @@ use pocketmine\command\CommandSender;
 use pocketmine\Player;
 use pocketmine\utils\TextFormat;
 
-class WorldCoreSubCommand extends BaseSubCommand {
+class TardisSubCommand extends BaseSubCommand {
 
     protected $plugin;
 
