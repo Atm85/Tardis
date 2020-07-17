@@ -1,0 +1,8 @@
+### WorldCore config
+### DO NOT CHANGE CONFIG VERSION
+config-version: 1
+
+### load all levels on server start [true:false]
+### if false, levels will renamed to their foldername as such onLevelLoad
+### use MultiWorld to load levels - /mw load <level>
+loadall-on-startup: true
