@@ -28,6 +28,9 @@ class TeleprortSubCommand extends WorldCoreSubCommand {
             return;
         }
 
+        $sender->teleport($level->getSafeSpawn());
+        $sender->sendMessage(TextFormat::colorize("&l&9Tardis &r&b - Teleporting to '$worldName'"));
+
     }
 
 }

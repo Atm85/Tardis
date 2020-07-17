@@ -6,6 +6,7 @@ namespace Atom\tardis\commands;
 
 use Atom\tardis\commands\subcommands\FixnameSubCommand;
 use Atom\tardis\commands\subcommands\RenameSubCommand;
+use Atom\tardis\commands\subcommands\TeleprortSubCommand;
 use Atom\tardis\Tardis;
 use CortexPE\Commando\BaseCommand;
 use pocketmine\command\CommandSender;
@@ -23,6 +24,7 @@ class WorldCoreCommand extends BaseCommand {
 
     protected function prepare(): void {
         $this->setPermission("tardis.command");
+        $this->registerSubCommand(new TeleprortSubCommand($this->plugin, "teleport", "teleport to a world", ["tp"]));
         $this->registerSubCommand(new FixnameSubCommand($this->plugin, "fixname", "fix world names"));
         $this->registerSubCommand(new RenameSubCommand($this->plugin, "rename", "rename a world"));
     }
