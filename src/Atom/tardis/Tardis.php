@@ -53,10 +53,19 @@ class Tardis extends PluginBase {
     }
 
     public function loadAll(): void {
-        $folders = scandir($this->path);
-        for ($i = 2; $i<count($folders); $i++) {
-            $this->getServer()->loadLevel($folders[$i]);
+        foreach ($this->getAll() as $world) {
+            $this->getServer()->loadLevel($world);
         }
+    }
+
+    public function getAll(): array {
+        $folders = scandir($this->path);
+        $worlds = [];
+        for ($i = 2; $i<count($folders); $i++) {
+            $worlds[] = $folders[$i];
+        }
+
+        return $worlds;
     }
 
     public function fixAll(): int {
