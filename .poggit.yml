@@ -6,6 +6,6 @@ projects:
   Tardis:
     path: ""
     libs:
-      - src "ParoxityTeam/Commando/Commando"
+      - src: "ParoxityTeam/Commando/Commando"
         version: ^2.1.0 
 ...
