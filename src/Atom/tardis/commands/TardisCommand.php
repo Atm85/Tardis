@@ -6,8 +6,10 @@ namespace Atom\tardis\commands;
 
 use Atom\tardis\commands\subcommands\FixnameSubCommand;
 use Atom\tardis\commands\subcommands\ListSubCommand;
+use Atom\tardis\commands\subcommands\LoadSubCommand;
 use Atom\tardis\commands\subcommands\RenameSubCommand;
 use Atom\tardis\commands\subcommands\TeleportSubCommand;
+use Atom\tardis\commands\subcommands\UnloadSubCommand;
 use Atom\tardis\Tardis;
 use CortexPE\Commando\BaseCommand;
 use pocketmine\command\CommandSender;
@@ -25,6 +27,8 @@ class TardisCommand extends BaseCommand {
 
     protected function prepare(): void {
         $this->setPermission("tardis.command");
+        $this->registerSubCommand(new LoadSubCommand($this->plugin, "load", "load world"));
+        $this->registerSubCommand(new UnloadSubCommand($this->plugin, "unload", "unload world"));
         $this->registerSubCommand(new ListSubCommand($this->plugin, "list", "lists all world on the server"));
         $this->registerSubCommand(new TeleportSubCommand($this->plugin, "teleport", "teleport to a world", ["tp"]));
         $this->registerSubCommand(new FixnameSubCommand($this->plugin, "fixname", "fix world names"));
