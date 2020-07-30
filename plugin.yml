@@ -3,3 +3,25 @@ api: [3.0.0]
 version: 0.0.1
 author: Atom#7489
 main: Atom\tardis\Tardis
+permissions:
+  tardis.command:
+    default: op
+    description: "Tardis main permission"
+  tardis.command.fixname:
+    default: op
+    description: "Usage: /tr fixname <all:world>"
+  tardis.command.list:
+    default: op
+    description: "Usage: /tr list"
+  tardis.command.load:
+    default: op
+    description: "Usage: /tr load <world>"
+  tardis.command.unload:
+    default: op
+    description: "Usage: /tr unload <world>"
+  tardis.command.rename:
+    default: op
+    description: "Usage: /tr rename <world> <newname>"
+  tardis.command.tp:
+      default: op
+      description: "Usage: /tr tp <world>"
