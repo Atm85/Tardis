@@ -26,7 +26,7 @@ class Tardis extends PluginBase {
     public $reflectionFolderName;
 
     public function onEnable(): void {
-        $this->getLogger()->info(TextFormat::colorize("&Tardis world manager by Atom#7489"));
+        $this->getLogger()->info(TextFormat::colorize("&aTardis world manager by Atom#7489"));
         $this->path = $this->getServer()->getDataPath()."worlds/";
 
         $this->reflectionProperty = new ReflectionProperty(Level::class, "displayName");
