@@ -3,6 +3,6 @@
 config-version: 1
 
 ### load all levels on server start [true:false]
-### if false, levels will renamed to their foldername as such onLevelLoad
-### use MultiWorld to load levels - /mw load <level>
+### if false, levels can be renamed to their foldername via onLevelLoad
+### or by command - /tr load <level>
 loadall-on-startup: true
