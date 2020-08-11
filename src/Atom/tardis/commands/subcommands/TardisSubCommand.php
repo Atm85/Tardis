@@ -10,7 +10,7 @@ use pocketmine\command\CommandSender;
 use pocketmine\Player;
 use pocketmine\utils\TextFormat;
 
-class TardisSubCommand extends BaseSubCommand {
+abstract class TardisSubCommand extends BaseSubCommand {
 
     protected $plugin;
 
@@ -33,7 +33,6 @@ class TardisSubCommand extends BaseSubCommand {
 
     }
 
-    public function onExecute(Player $sender, array $args): void {
-    }
+    abstract public function onExecute(Player $sender, array $args): void;
 
 }
