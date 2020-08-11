@@ -9,6 +9,6 @@ projects:
       - src: "ParoxityTeam/Commando/Commando"
         version: ^2.1.0
 
-  lint:
-    phpstan: false
+    lint:
+      phpstan: false
 ...
