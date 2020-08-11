@@ -5,6 +5,7 @@ namespace Atom\tardis\commands;
 
 
 use Atom\tardis\commands\subcommands\FixnameSubCommand;
+use Atom\tardis\commands\subcommands\GenerateSubCommand;
 use Atom\tardis\commands\subcommands\ListSubCommand;
 use Atom\tardis\commands\subcommands\LoadSubCommand;
 use Atom\tardis\commands\subcommands\RenameSubCommand;
@@ -33,6 +34,7 @@ class TardisCommand extends BaseCommand {
         $this->registerSubCommand(new TeleportSubCommand($this->plugin, "teleport", "teleport to a world", ["tp"]));
         $this->registerSubCommand(new FixnameSubCommand($this->plugin, "fixname", "fix world names"));
         $this->registerSubCommand(new RenameSubCommand($this->plugin, "rename", "rename a world"));
+        $this->registerSubCommand(new GenerateSubCommand($this->plugin, "generate", "generate a new world", ["gen"]));
     }
 
     public function onRun(CommandSender $sender, string $command, array $args): void {
