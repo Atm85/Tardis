@@ -5,14 +5,19 @@ namespace Atom\tardis;
 
 
 use Atom\tardis\commands\TardisCommand;
+use Atom\tardis\managers\AddWarpCommand;
+use Atom\tardis\managers\DelWarpCommand;
+use Atom\tardis\managers\WarpCommand;
+use Atom\tardis\managers\WarpManager;
 use pocketmine\level\Level;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
 use pocketmine\utils\TextFormat;
-use ReflectionProperty;
 use xenialdan\customui\elements\Button;
 use xenialdan\customui\windows\SimpleForm;
+
+use ReflectionProperty;
 
 class Tardis extends PluginBase {
 
@@ -29,6 +34,9 @@ class Tardis extends PluginBase {
 
     /** @var ReflectionProperty */
     public $reflectionFolderName;
+
+    /** @var WarpManager */
+    private $warpManager;
 
     public function onEnable(): void {
         $this->getLogger()->info(TextFormat::colorize("&aTardis world manager by Atom#7489"));
@@ -50,6 +58,9 @@ class Tardis extends PluginBase {
         $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
         $commandMap = $this->getServer()->getCommandMap();
         $commandMap->register("tardis", new TardisCommand($this, "tardis", "Tardis plugin command", ["td", "tr", "twm"]));
+        $commandMap->register("tardis", new AddWarpCommand($this, "addwarp", "Add a warp", ["aw"]));
+        $commandMap->register("tardis", new DelWarpCommand($this, "delwarp", "deletes a warp", ["dw"]));
+        $commandMap->register("tardis", new WarpCommand($this, "warp", "warp to a position"));
 
         if ($this->config->get("loadall-on-startup")) {
             $this->getLogger()->info(TextFormat::GREEN."Fixed ".$this->fixAll()." world name(s)!");
@@ -72,6 +83,7 @@ class Tardis extends PluginBase {
             $player->teleport($level->getSafeSpawn());
         });
 
+        $this->warpManager = new WarpManager($this);
     }
 
     public function loadAll(): void {
@@ -140,6 +152,11 @@ class Tardis extends PluginBase {
         }
 
         return false;
+    }
+
+    // API
+    public function getWarpManager() : WarpManager {
+        return $this->warpManager;
     }
 
 }
