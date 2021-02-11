@@ -6,12 +6,17 @@ namespace Atom\tardis;
 
 use Atom\tardis\commands\TardisCommand;
 use pocketmine\level\Level;
+use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
 use pocketmine\utils\TextFormat;
 use ReflectionProperty;
+use xenialdan\customui\elements\Button;
+use xenialdan\customui\windows\SimpleForm;
 
 class Tardis extends PluginBase {
+
+    public static $staticUI;
 
     /** @var Config */
     public $config;
@@ -49,6 +54,23 @@ class Tardis extends PluginBase {
         if ($this->config->get("loadall-on-startup")) {
             $this->getLogger()->info(TextFormat::GREEN."Fixed ".$this->fixAll()." world name(s)!");
         }
+
+        self::$staticUI = new SimpleForm("Worlds");
+        $levels = $this->getServer()->getLevels();
+        foreach ($levels as $level) {
+            self::$staticUI->addButton(new Button($level->getName()));
+        }
+
+        self::$staticUI->setCallable(function (Player $player, string $data) {
+
+            $level = $this->getServer()->getLevelByName($data);
+            if ($level == null) {
+                $player->sendMessage(TextFormat::RED . "An error occurred while attempting to teleport you to '$data'");
+                return;
+            }
+
+            $player->teleport($level->getSafeSpawn());
+        });
 
     }
 

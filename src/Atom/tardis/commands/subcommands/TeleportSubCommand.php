@@ -4,6 +4,7 @@
 namespace Atom\tardis\commands\subcommands;
 
 
+use Atom\tardis\Tardis;
 use CortexPE\Commando\args\RawStringArgument;
 use CortexPE\Commando\exception\ArgumentOrderException;
 use pocketmine\Player;
@@ -16,10 +17,15 @@ class TeleportSubCommand extends TardisSubCommand {
      */
     protected function prepare(): void {
         $this->setPermission("tardis.command.tp");
-        $this->registerArgument(0, new RawStringArgument("worldName", false));
+        $this->registerArgument(0, new RawStringArgument("worldName", true));
     }
 
     public function onExecute(Player $sender, array $args): void {
+
+        if (!isset($args["worldName"])) {
+            $sender->sendForm(Tardis::$staticUI);
+            return;
+        }
 
         $worldName = $args["worldName"];
         $level = $this->plugin->getServer()->getLevelByName($worldName);
