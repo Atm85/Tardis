@@ -39,6 +39,10 @@ class TardisCommand extends BaseCommand {
 
     public function onRun(CommandSender $sender, string $command, array $args): void {
         $sender->sendMessage(TextFormat::colorize("&l&9Tardis &r- world manager"));
+        $sender->sendMessage(TextFormat::colorize("&b /addwarp [name] &f- add warp"));
+        $sender->sendMessage(TextFormat::colorize("&b /delwarp [name] &f- delete warp"));
+        $sender->sendMessage(TextFormat::colorize("&b /warp &f- open warp gui"));
+        $sender->sendMessage(TextFormat::colorize("&b /warp [name] &f- warp to a position"));
         $sender->sendMessage(TextFormat::colorize("&b /$command load [world] &f- load world"));
         $sender->sendMessage(TextFormat::colorize("&b /$command unload [world] &f- unload world"));
         $sender->sendMessage(TextFormat::colorize("&b /$command list [world] &f- lists all worlds on the server"));
