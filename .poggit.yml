@@ -6,10 +6,10 @@ projects:
   Tardis:
     path: ""
     libs:
-      # - src: "ParoxityTeam/Commando/Commando"
-        # version: ^2.1.0
       - src: "thebigsmileXD/customui/customui"
         version: ^3.0.0
+      - src: "ParoxityTeam/Commando/Commando"
+        version: "^2.1.1"
 
     lint:
       phpstan: false
