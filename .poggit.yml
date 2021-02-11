@@ -8,7 +8,7 @@ projects:
     libs:
       # - src: "ParoxityTeam/Commando/Commando"
         # version: ^2.1.0
-      - src: "thebigsmileXD/customui"
+      - src: "thebigsmileXD/customui/customui"
         version: ^3.0.0
 
     lint:
