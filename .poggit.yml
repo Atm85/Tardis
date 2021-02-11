@@ -6,7 +6,7 @@ projects:
   Tardis:
     path: ""
     libs:
-      - src: "ParoxityTeam/Commando/Commando"
+      - src: "ParoxityTeam/Commando"
         version: ^2.1.0
       - src: "thebigsmileXD/customui"
         version: ^3.0.0
