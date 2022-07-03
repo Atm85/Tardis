@@ -1,4 +1,4 @@
---- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/fv-dg/Tardis
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/atm85/Tardis
 build-by-default: true
 branches:
 - master
